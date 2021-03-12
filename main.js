@@ -1,14 +1,12 @@
-var form = document.querySelector('.form')
-var num = document.querySelector('.passNum')
-var show = document.querySelector('#show-pass')
-
-
-function generatePass (e) {
+const form = document.querySelector('.form')
+const len = document.querySelector('#pass-len')
+const show = document.querySelector('#show-pass')
+    
+form.onsubmit = (e) => {
   e.preventDefault()
-  show.innerText = num.value
-  num.value = ''
+  let pass = Math.random().toString(36).substr(2, len.value)
+  show.innerHTML = pass
+  
+  len.value = ''
   return false
 }
-
-
-form.addEventListener('submit', generatePass)
