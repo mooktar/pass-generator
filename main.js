@@ -4,8 +4,8 @@ const show = document.querySelector('#show-pass')
     
 form.onsubmit = (e) => {
   e.preventDefault()
-  let pass = Math.random().toString(36).substr(2, len.value)
-  show.innerHTML = pass
+  
+  show.innerHTML = Math.random().toString(36).substr(2, (len.value || 8))
   
   len.value = ''
   return false
